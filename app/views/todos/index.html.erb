@@ -1,0 +1,49 @@
+<title>Shared Todo App - All your Todo go here</title>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#"><i class="icon-tasks"></i>TODO List</a>      
+        </div>
+    </div>
+</div>
+<br><br><br>  
+<script type="text/javascript">
+ ('document').ready(function(){
+  ('#img').magnifier();
+ });
+</script>
+<center>
+<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQuyxnOX7qzIk_rNdHlh43dKAdZbIG4Mm6BC7j9XifWMSNiAvOrr-Axw2c" id="img" class="magnify" data-magnifyby="5" style="width:200px; height:150px"></center>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <h1>Shared Your Todos</h1>
+            <p>All Your Todos Here</p>
+            <%= form_tag("/todos/add", :method=>"post") do %>
+            <%= text_field_tag(:todo_text) %>
+            <%= submit_tag("Add Todo", :class=>"btn btn-inverse") %>
+            <% end %>
+            <div class="well">
+                <ul>
+                    <% @todo_items.each do |t| %>
+                    <li>
+                        <%= t.todo_item %>
+                    </li>
+                    <% end %>
+                </ul>
+                <a href="/todos/delete" class="btn btn-inverse">Delete Last Todo</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="well brand">
+        <center>QDXSOFT Solutions</center><br>
+        <center># 257, Ground Floor, Burma Colony</center><br>
+        <center>IT Corridor, Perungudi Post, Chennai-600096, India.</center>
+    </div>
+</div>
+
+
+
